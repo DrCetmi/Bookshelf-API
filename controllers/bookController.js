@@ -1,4 +1,4 @@
-import Books from "../routes/booksSchema";
+import Books from "../models/booksSchema.js";
 
 // Create a new book
 const createBook = async (req, res) => {
