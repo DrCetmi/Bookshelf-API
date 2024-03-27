@@ -16,13 +16,14 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("DB Connected"));
+  .then(() => console.log("DB Connected"))
+  .catch((err) => console.log(err));
 
 // Routes
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
-
+// app.use("/books", booksRoutes);
 // Port
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
