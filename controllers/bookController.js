@@ -17,7 +17,7 @@ const getBooks = async (req, res) => {
     const books = await Books.find();
     res.status(200).json(books);
   } catch (error) {
-    res.status(500).json(error);
+    res.status(400).json(error);
   }
 };
 
@@ -30,7 +30,7 @@ const getBook = async (req, res) => {
     }
     res.status(200).json(book);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(400).json({ message: error.message });
   }
 };
 
@@ -45,7 +45,7 @@ const updateBook = async (req, res) => {
     }
     res.status(200).json(book);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(400).json({ message: err.message });
   }
 };
 

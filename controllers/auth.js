@@ -2,10 +2,10 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
 
-const token = jwt.sign({ foo: "bar" }, "shhhhh", {
-  expiresIn: "1h",
-});
-console.log(token);
+// const token = jwt.sign({ foo: "bar" }, "shhhhh", {
+//   expiresIn: "1h",
+// });
+// console.log(token);
 
 export const authenticate = (req, res, next) => {
   const token = req.headers.authorization;

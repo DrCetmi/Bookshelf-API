@@ -20,11 +20,14 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("DB Connected"))
+  .then(() => {
+    console.log("Connected to MongoDB Atlas");
+    const port = process.env.PORT || 8000;
+
+    app.listen(port, () => {
+      // console.log(`Server is running on port ${port}`);
+    });
+  })
   .catch((err) => console.log(err));
 
-// Port
-const port = process.env.PORT || 8000;
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+export default app;
