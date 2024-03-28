@@ -1,5 +1,6 @@
 import request from "supertest";
 import app from "../server.js";
+import express from "express";
 
 describe("GET /books", () => {
   it("should get all books", async () => {

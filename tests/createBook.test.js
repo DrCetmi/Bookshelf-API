@@ -1,4 +1,5 @@
 import request from "supertest";
+import express from "express";
 import app from "../server.js";
 
 describe("POST /books", () => {

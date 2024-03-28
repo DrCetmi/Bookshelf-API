@@ -1,4 +1,4 @@
-import { Router } from "express";
+import express from "express";
 import {
   createBook,
   getBooks,
@@ -6,16 +6,19 @@ import {
   updateBook,
   deleteBook,
 } from "../controllers/bookController.js";
+
 import { authenticate } from "../controllers/auth.js";
 
-const router = new Router();
+const router = express.Router();
 
 router
-  .post("/books", authenticate, createBook)
-  .get("/books", authenticate, getBooks);
+  .route("/books")
+  .post(authenticate, createBook)
+  .get(authenticate, getBooks);
 router
-  .get("/books/:id", authenticate, getBook)
-  .put("/books/:id", authenticate, updateBook)
-  .delete("/books/:id", authenticate, deleteBook);
+  .route("/books/:id")
+  .get(authenticate, getBook)
+  .put(authenticate, updateBook)
+  .delete(authenticate, deleteBook);
 
 export default router;

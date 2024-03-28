@@ -52,7 +52,7 @@ const updateBook = async (req, res) => {
 // Delete a book
 const deleteBook = async (req, res) => {
   try {
-    const book = await Books.findByIdAndDelete(req.prams.id);
+    const book = await Books.findByIdAndDelete(req.params.id);
     if (!book) {
       return res.status(404).json({ message: "Book not found" });
     }

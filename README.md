@@ -1,123 +1,48 @@
 # Bookshelf API
 
-## Phase 1: Planning and Design
+This project aims to create an API for a bookshelf application. The API allows for adding books, retrieving book details, updating book information, and deleting books. It also includes a basic authentication system that allows users to register and log in.
 
-Objectives:
+## Goals
 
-- Understand the project requirements.
+- **Phase 1: Planning and Design**
 
-- Design the API endpoints.
+  - [x] Understand project requirements.
+  - [x] Design API endpoints.
+  - [x] Gather data.
 
-- Gather Data.
+- **Phase 2: Setting Up the Environment**
 
-Tasks:
+  - [x] Set up development environment.
+  - [x] Initialize project with version control.
 
-1. Define the scope of the bookshelf API (e.g., adding books, retrieving book details, updating book information, deleting books).
+- **Phase 3: Building the Database Layer**
 
-1.Sketch the API endpoints and their methods (GET, POST, PUT, DELETE).
+  - [x] Implement database schema.
+  - [x] Gather information on Atlas and Render.com.
 
-1.Plan the database schema for books (consider fields like title, author, ISBN, and publication year).
+- **Phase 4: Developing API Endpoints**
 
-## Phase 2: Setting Up the Environment
+  - [x] Implement RESTful principles.
+  - [x] Handle HTTP requests and responses.
 
-Objectives:
+- **Phase 5: Adding Authentication**
 
-- Set up the development environment.
+  - [x] Implement basic authentication.
+  - [x] Set up middleware to protect routes.
 
-- Initialize the project with version control.
+- **Phase 6: Testing**
 
-Tasks:
+  - [x] Write unit and integration tests for APIs.
+  - [x] Use test frameworks like Jest or Mocha.
 
-1. Install necessary packages.
+- **Phase 7: Documentation and Deployment**
+  - [x] Document the API for future developers.
+  - [x] Learn basic deployment on a cloud provider.
 
-1. Initialize a new Git repository and commit the initial project structure.
+## Packages
 
-1. Create a basic README file with project description(You will need it later).
-
-## Phase 3: Building the Database Layer
-
-Objectives:
-
-- Implement the database schema.
-
-- Learn about Atlas and Render.com.
-
-Tasks:
-
-1. Set up the database and create a connection from the application.
-
-1. Define models/migrations for the book data structure.
-
-1. Implement simple CRUD operations for the database models.
-
-## Phase 4: Developing the API Endpoints
-
-Objectives:
-
-- Implement RESTful principles.
-
-- Handle HTTP requests and responses.
-
-- Understand middleware and routing in web frameworks.
-
-Tasks:
-
-1. Set up routes for each API endpoint.
-
-1. Implement controllers for handling business logic for each route.
-
-1. Ensure proper status codes and responses are returned.
-
-## Phase 5: Adding Authentication
-
-Objectives:
-
-- Implement basic authentication.
-
-- Understand the concept of middleware for protecting routes.
-
-Tasks:
-
-1. Set up user registration and login endpoints.
-
-1. Implement authentication based on what you have learned.
-
-1. Protect book-related routes with authentication checks.
-
-## Phase 6: Testing
-
-Objectives:
-
-- Learn basic unit and integration testing for APIs.
-
-- Use testing frameworks like Jest or Mocha.
-
-Tasks:
-
-1. Write tests for each endpoint to ensure they behave as expected.
-
-1. Test error handling and edge cases.
-
-1. Ensure database operations are performed correctly.
-
-## Phase 7: Documentation and Deployment
-
-Objectives:
-
-- Document the API for future developers.
-
-- Learn basic deployment to a cloud provider(Atlas, Render.com).
-
-Tasks:
-
-1. Document each endpoint, including parameters and example requests/responses.
-
-1. Prepare the application for deployment (consider environment variables, database connections).
-
-1. Deploy the API to a cloud provider like Render, and ensure it's accessible.
-
-## Bonus
-
-- Code Reviews: Review a peer's code and provide feedback on quality and improvement.
-
-- Continuous Integration: Set up a CI/CD pipeline for automated testing and deployment.
+- `express`: For building web applications.
+- `mongoose`: For MongoDB database operations.
+- `dotenv`: For loading environment variables.
+- `jest`, `supertest`: For testing.
+- `nodemon` (optional for development): For automatically restarting the server.
