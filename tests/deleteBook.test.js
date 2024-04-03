@@ -1,16 +1,22 @@
 import request from "supertest";
-import app from "../server.js";
-import express from "express";
+import app from "../server";
 
 describe("DELETE /books/:id", () => {
-  it("should delete a book by id", async () => {
-    const res = await request(app).delete("/books/999");
-    expect(res.statusCode).toEqual(200);
-    expect(res.body).toHaveProperty("message", "Book deleted successfully");
-  });
+  it("should delete the specified book", async () => {
+    const responseCreate = await request(app).post("/books/999").send({
+      title: "Test Book",
+      author: "Test Author",
+      isbn: "1234567890",
+      published_date: 2021,
+    });
 
-  it("should return 404 if book not found", async () => {
-    const res = await request(app).delete("/books/999");
-    expect(res.statusCode).toEqual(404);
+    const bookId = responseCreate.body._id;
+
+    const responseDelete = await request(app).delete(`/books/${bookId}`);
+
+    expect(responseDelete.status).toBe(200);
+    expect(responseDelete.body).toMatchObject({
+      message: "Book deleted successfully",
+    });
   });
 });

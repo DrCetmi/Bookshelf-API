@@ -7,18 +7,18 @@ import {
   deleteBook,
 } from "../controllers/bookController.js";
 
-import { authenticate } from "../controllers/auth.js";
+import authenticateToken from "../controllers/authenticate.js";
 
 const router = express.Router();
 
 router
-  .route("/books")
-  .post(authenticate, createBook)
-  .get(authenticate, getBooks);
+  .route("/")
+  .post(authenticateToken, createBook)
+  .get(authenticateToken, getBooks);
 router
-  .route("/books/:id")
-  .get(authenticate, getBook)
-  .put(authenticate, updateBook)
-  .delete(authenticate, deleteBook);
+  .route("/:id")
+  .get(authenticateToken, getBook)
+  .put(authenticateToken, updateBook)
+  .delete(authenticateToken, deleteBook);
 
 export default router;

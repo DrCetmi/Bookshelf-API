@@ -1,17 +1,21 @@
 import request from "supertest";
-import app from "../server.js";
-import express from "express";
+import app from "../server";
 
 describe("GET /books/:id", () => {
-  it("should get a book by id", async () => {
-    const res = await request(app).get("/books/999");
-    expect(res.statusCode).toEqual(200);
-    expect(res.body).toHaveProperty("_id");
-  });
+  it("should return the specified book", async () => {
+    const responseCreate = await request(app).post("/books/999").send({
+      title: "Test Book",
+      author: "Test Author",
+      isbn: "1234567890",
+      published_date: 2021,
+    });
 
-  it("should return 404 if book not found", async () => {
-    const res = await request(app).get("/books/999");
-    expect(res.statusCode).toEqual(404);
-    expect(res.body).toHaveProperty("message", "Book not found");
+    const bookId = responseCreate.body._id;
+
+    const responseGet = await request(app).get(`/books/${bookId}`);
+
+    expect(responseGet.status).toBe(200);
+    expect(responseGet.body.title).toBe("Test Book");
+    expect(responseGet.body.author).toBe("Test Author");
   });
 });

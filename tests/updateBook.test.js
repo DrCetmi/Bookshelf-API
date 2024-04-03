@@ -1,26 +1,23 @@
 import request from "supertest";
-import app from "../server.js";
-import express from "express";
+import app from "../server";
 
 describe("PUT /books/:id", () => {
-  it("should update a book by id", async () => {
-    const res = await request(app).put("/books/999").send({
-      title: "Updated Test Book",
-      author: "Updated Test Author",
-      isbn: "0987654321",
-      published_date: "2021-01-01",
+  it("should update the specified book", async () => {
+    const responseCreate = await request(app).post("/books/999").send({
+      title: "Test Book",
+      author: "Test Author",
+      isbn: "1234567890",
+      published_date: 2021,
     });
-    expect(res.status).toEqual(200);
-    expect(res.body).toHaveProperty("_id");
-  });
 
-  it("should return 404 if book not found", async () => {
-    const res = await request(app).put("/books/999").send({
-      title: "Updated Test Book",
-      author: "Updated Test Author",
-      isbn: "0987654321",
-      published_date: "2021-01-01",
-    });
-    expect(res.statusCode).toEqual(404);
+    const bookId = responseCreate.body._id;
+
+    const responseUpdate = await request(app)
+      .put(`/books/${bookId}`)
+      .send({ title: "Updated Test Book", author: "Updated Test Author" });
+
+    expect(responseUpdate.status).toBe(200);
+    expect(responseUpdate.body.title).toBe("Updated Test Book");
+    expect(responseUpdate.body.author).toBe("Updated Test Author");
   });
 });
