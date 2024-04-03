@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "## Phase 1: Planning and Design",
   "main": "server.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "test": "jest"
   },
